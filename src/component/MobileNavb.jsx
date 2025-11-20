@@ -7,15 +7,13 @@ import { CiUser } from "react-icons/ci";
 
 const navItems = [
   {
-    label: "KV",
+    label: "Home",
     // Fixed: Logo is now properly sized and centered
     icon: (
-      <div className="w-10 h-10 flex items-center justify-center">
-        <img
-          src={logo}
-          alt="KV Logo"
-          className="max-w-full max-h-full object-contain"
-        />
+      <div
+        className={`w-7 h-7 rounded-full bg-gradient-to-r ${Colors.gradientFrom} ${Colors.gradientTo} flex items-center justify-center text-white font-bold text-lg shadow-md`}
+      >
+        <span className="text-[13px]">H</span>
       </div>
     ),
     component: <Home />,
@@ -23,7 +21,9 @@ const navItems = [
   {
     label: "Profile",
     icon: (
-      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center text-white font-bold text-lg shadow-md">
+      <div
+        className={`w-7 h-7 rounded-full bg-gradient-to-r ${Colors.gradientFrom} ${Colors.gradientTo} flex items-center justify-center text-white font-bold text-lg shadow-md`}
+      >
         <CiUser />
       </div>
     ),
@@ -42,7 +42,7 @@ const MobileNavbar = () => {
       </div>
 
       {/* Floating Bottom Navbar - Clean & Balanced */}
-      <nav className="fixed bottom-2 left-1/2 -translate-x-1/2 w-[97%] max-w-lg z-50">
+      <nav className="fixed bottom-1 left-1/2 -translate-x-1/2 w-[97%] max-w-lg z-50">
         <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/30 px-3 py-2">
           <div className="flex justify-around items-center">
             {navItems.map((item, index) => (

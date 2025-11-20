@@ -233,7 +233,7 @@ const UsedProduct = () => {
       {/* === MAIN CONTENT (Starts below header) === */}
 
       <div>
-        <div className="md:hidden flex justify-between items-center px-[25px] mt-1">
+        <div className="md:hidden flex justify-between items-center px-[10px] mt-1">
           <motion.div
             variants={headerVariants}
             initial="hidden"
@@ -241,7 +241,7 @@ const UsedProduct = () => {
             transition={{ duration: 0.5 }}
             className="mt-1"
           >
-            <div className="flex items-center bg-gray-50 border border-gray-300 rounded-xl px-5 py-3 shadow-sm focus-within:ring-2 focus-within:ring-orange-400 transition-all">
+            <div className="flex items-center bg-gray-50 border border-gray-300 rounded-xl px-5 py-3 shadow-sm focus-within:ring-2 focus-within:ring-purple-400 transition-all">
               <FiSearch className="text-gray-500 mr-[1px] " size={20} />
               <input
                 type="text"
@@ -256,7 +256,7 @@ const UsedProduct = () => {
           <div className="">
             <button
               onClick={() => navigate("/cartpage")}
-              className="m-[1px]-1 p-[10px] rounded-full border b "
+              className="m-[1px] p-[10px] rounded-full border b "
             >
               {isLoading ? (
                 <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
