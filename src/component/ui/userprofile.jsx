@@ -338,7 +338,7 @@ const UserProfile = () => {
             <img
               src={
                 user[0]?.Image
-                  ? `https://hina.anklegaming.live/${user[0].Image}`
+                  ? `https://hina.anklegaming.live/Images/${user[0].Image}`
                   : "https://via.placeholder.com/150?text=Avatar"
               }
               alt="Profile"
