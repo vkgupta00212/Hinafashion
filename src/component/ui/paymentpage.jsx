@@ -290,7 +290,7 @@ const PaymentPage = () => {
                 {loading ? "Processing..." : "Cash on Delivery"}
               </button>
 
-              <button
+              {/* <button
                 onClick={() => {
                   onClose();
                   handleOnlinePayment();
@@ -299,7 +299,7 @@ const PaymentPage = () => {
                 className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-3 rounded-xl font-medium hover:shadow-lg transition text-sm disabled:opacity-70"
               >
                 Pay Online
-              </button>
+              </button> */}
             </div>
 
             <p className="text-xs text-gray-500 mt-4">
