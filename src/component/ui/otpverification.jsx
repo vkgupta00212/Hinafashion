@@ -324,7 +324,7 @@ const OtpVerification = ({ onClose, onVerify }) => {
               disabled={!isOtpComplete}
               className={`w-full py-3 rounded-lg font-semibold transition ${
                 isOtpComplete
-                  ? `bg-${Colors.primaryMain} text-white hover:bg-[#7A420C]`
+                  ? `bg-[#b73b84] text-white hover:bg-[#542374]`
                   : "bg-gray-300 text-gray-500"
               }`}
             >

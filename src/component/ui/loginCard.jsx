@@ -227,7 +227,7 @@ const LoginCard = ({ onClose, onSubmit }) => {
             <div className="mb-6">
               <Phone className={`w-8 h-8 mb-3 text-${Colors.primaryMain}`} />
               <h2
-                className={`text-2xl sm:text-3xl font-bold bg-${Colors.primaryMain} bg-clip-text text-transparent`}
+                className={`text-2xl sm:text-3xl font-bold text-${Colors.primaryMain} bg-clip-text`}
               >
                 Enter your phone number
               </h2>
@@ -261,7 +261,7 @@ const LoginCard = ({ onClose, onSubmit }) => {
               disabled={!isValid || loading}
               className={`w-full py-3 px-4 rounded-lg font-semibold transition-all ${
                 isValid && !loading
-                  ? `bg-${Colors.primaryMain} text-white hover:[#7A420C] hover:to-purple-700`
+                  ? `bg-[#b73b84] text-white hover:${Colors.gradientFrom} hover:${Colors.gradientTo}`
                   : "bg-gray-300 text-gray-500 cursor-not-allowed"
               }`}
             >
