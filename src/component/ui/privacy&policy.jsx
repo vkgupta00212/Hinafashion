@@ -13,7 +13,7 @@ const PrivacyAndPolicy = () => {
       setLoading(true);
       setError(null);
       try {
-        const data = await GetForms("Privacy");
+        const data = await GetForms("Privacy", "User");
         console.log("Terms info fetched:", data);
 
         if (Array.isArray(data) && data.length > 0) {

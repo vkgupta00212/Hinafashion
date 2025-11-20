@@ -13,7 +13,7 @@ const TermsPage = () => {
       setLoading(true);
       setError(null);
       try {
-        const data = await GetForms("Terms");
+        const data = await GetForms("Terms", "User");
         console.log("Terms info fetched:", data);
 
         if (Array.isArray(data) && data.length > 0) {

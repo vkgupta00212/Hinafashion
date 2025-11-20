@@ -13,7 +13,7 @@ const AboutUs = () => {
       setLoading(true);
       setError(null);
       try {
-        const data = await GetForms("About Us");
+        const data = await GetForms("About Us", "User");
         console.log("Terms info fetched:", data);
 
         if (Array.isArray(data) && data.length > 0) {
