@@ -25,7 +25,7 @@ const GetServicesTab = async (Id) => {
 
   try {
     const response = await axios.post(
-      "https://ecommerce.anklegaming.live/APIs/APIs.asmx/ShowColors",
+      "https://hina.anklegaming.live/APIs/APIs.asmx/ShowColors",
       formData,
       {
         headers: {

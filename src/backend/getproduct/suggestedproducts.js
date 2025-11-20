@@ -24,7 +24,7 @@ const GetSuggestProduct = async () => {
 
   try {
     const response = await axios.post(
-      "https://ecommerce.anklegaming.live/APIs/APIs.asmx/ShowSuggestedProducts",
+      "https://hina.anklegaming.live/APIs/APIs.asmx/ShowSuggestedProducts",
       formData,
       {
         headers: {

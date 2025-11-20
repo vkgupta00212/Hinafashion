@@ -26,7 +26,7 @@ const GetTransaction = async (phone) => {
 
   try {
     const response = await axios.post(
-      "https://ecommerce.anklegaming.live/APIs/APIs.asmx/GetTransactions",
+      "https://hina.anklegaming.live/APIs/APIs.asmx/GetTransactions",
       formData,
       { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
     );

@@ -236,10 +236,9 @@ const UserProfile = () => {
     },
 
     { id: 3, title: "My Orders", Component: <MyOrder /> },
-    { id: 4, title: "Wallet Transactions", Component: <Wallet /> },
-    { id: 5, title: "Terms & Conditions", Component: <TermsPage /> },
-    { id: 6, title: "Privacy Policy", Component: <PrivacyAndPolicy /> },
-    { id: 7, title: "About Us", Component: <AboutUs /> },
+    { id: 4, title: "Terms & Conditions", Component: <TermsPage /> },
+    { id: 5, title: "Privacy Policy", Component: <PrivacyAndPolicy /> },
+    { id: 6, title: "About Us", Component: <AboutUs /> },
   ];
 
   const getIcon = (title, size = 18) => {
@@ -339,7 +338,7 @@ const UserProfile = () => {
             <img
               src={
                 user[0]?.Image
-                  ? `https://ecommerce.anklegaming.live/${user[0].Image}`
+                  ? `https://hina.anklegaming.live/${user[0].Image}`
                   : "https://via.placeholder.com/150?text=Avatar"
               }
               alt="Profile"
@@ -412,7 +411,7 @@ const UserProfile = () => {
       </div>
 
       {/* ===== MOBILE BOTTOM TABS ===== */}
-      <div className="md:hidden fixed bottom-[80px] left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-50">
+      <div className="md:hidden fixed bottom-[70px] left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-50">
         <div className="flex items-center py-1">
           {/* Scrollable Nav Items */}
           <div className="flex overflow-x-auto no-scrollbar flex-1 px-1 space-x-4">
@@ -422,7 +421,7 @@ const UserProfile = () => {
                 onClick={() => setActiveSection(section.id)}
                 className={`flex flex-col items-center justify-center min-w-[60px] p-2 rounded-lg transition-all ${
                   activeSection === section.id
-                    ? "text-orange-600"
+                    ? "text-[#b73b84]"
                     : "text-gray-600"
                 }`}
               >

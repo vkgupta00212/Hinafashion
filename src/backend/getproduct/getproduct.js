@@ -26,7 +26,7 @@ const GetProduct = async (type, id) => {
 
   try {
     const response = await axios.post(
-      "https://ecommerce.anklegaming.live/APIs/APIs.asmx/ShowProducts",
+      "https://hina.anklegaming.live/APIs/APIs.asmx/ShowProducts",
       formData,
       {
         headers: {

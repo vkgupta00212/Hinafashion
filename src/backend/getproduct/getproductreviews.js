@@ -39,7 +39,7 @@ const GetProductReviews = async (productId) => {
 
   try {
     const response = await axios.post(
-      "https://ecommerce.anklegaming.live/APIs/APIs.asmx/ShowProductReviews",
+      "https://hina.anklegaming.live/APIs/APIs.asmx/ShowProductReviews",
       formData,
       {
         headers: {

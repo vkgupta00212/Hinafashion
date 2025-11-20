@@ -8,7 +8,7 @@ const AssignLeads = async (orderid) => {
   try {
     // Send POST request
     const response = await axios.post(
-      "https://ecommerce.anklegaming.live/APIs/APIs.asmx/AssignLeads",
+      "https://hina.anklegaming.live/APIs/APIs.asmx/AssignLeads",
       formData.toString(),
       {
         headers: {

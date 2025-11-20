@@ -31,7 +31,7 @@ const GetUser = async (phone) => {
 
   try {
     const response = await axios.post(
-      "https://ecommerce.anklegaming.live/APIs/APIs.asmx/GetProfile",
+      "https://hina.anklegaming.live/APIs/APIs.asmx/GetProfile",
       formData,
       {
         headers: {

@@ -198,7 +198,7 @@ const RegisterPage = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className={`w-full py-3 bg-${Colors.primaryMain} text-white rounded-lg font-semibold shadow-md hover:bg-${Colors.primaryMain} hover:shadow-lg transition-all duration-300`}
+            className={`w-full py-3 bg-[#b73b84] text-white rounded-lg font-semibold shadow-md hover:bg-[#542374] hover:shadow-lg transition-all duration-300`}
           >
             Register
           </button>

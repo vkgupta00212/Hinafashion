@@ -33,7 +33,7 @@ const GetCourse = async () => {
 
   try {
     const response = await axios.post(
-      "https://ecommerce.anklegaming.live/APIs/APIs.asmx/ShowCourse",
+      "https://hina.anklegaming.live/APIs/APIs.asmx/ShowCourse",
       formData
     );
 

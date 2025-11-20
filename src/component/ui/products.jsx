@@ -44,7 +44,7 @@ const UsedProduct = () => {
                 ...product,
                 imageUrl:
                   images.length > 0
-                    ? `https://api.hukmee.in/${images[0].productImage}`
+                    ? `https://hina.anklegaming.live/${images[0].productImage}`
                     : spaImage,
               };
             } catch (err) {

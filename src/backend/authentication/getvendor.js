@@ -48,7 +48,7 @@ const GetVendor = async (phone) => {
 
   try {
     const response = await axios.post(
-      "https://ecommerce.anklegaming.live/APIs/APIs.asmx/ShowVendorProfile",
+      "https://hina.anklegaming.live/APIs/APIs.asmx/ShowVendorProfile",
       formData,
       {
         headers: {

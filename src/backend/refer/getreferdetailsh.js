@@ -25,7 +25,7 @@ const GetReferDetailsh = async (phone) => {
 
   try {
     const response = await axios.post(
-      "https://ecommerce.anklegaming.live/APIs/APIs.asmx/GetReferCode",
+      "https://hina.anklegaming.live/APIs/APIs.asmx/GetReferCode",
       formData,
       {
         headers: {

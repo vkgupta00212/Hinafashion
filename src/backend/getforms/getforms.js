@@ -23,7 +23,7 @@ const GetForms = async (formtype) => {
 
   try {
     const response = await axios.post(
-      "https://ecommerce.anklegaming.live/APIs/APIs.asmx/GetForms",
+      "https://hina.anklegaming.live/APIs/APIs.asmx/GetForms",
       formData,
       {
         headers: {
