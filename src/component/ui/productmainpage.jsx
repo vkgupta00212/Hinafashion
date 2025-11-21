@@ -633,7 +633,7 @@ const ProductMainPage = () => {
                 </div>
 
                 {/* Buttons Row */}
-                <div className="w-full flex flex-col md:flex-row md:items-center md:gap-5">
+                <div className="w-full flex flex-col md:flex-col gap-3">
                   {/* ADD TO CART BUTTON */}
                   <motion.button
                     whileHover={{ scale: addStatus === "added" ? 1 : 1.02 }}
