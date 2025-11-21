@@ -241,17 +241,18 @@ const UsedProduct = () => {
                 </div>
               </motion.div>
 
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => navigate("/cartpage")}
-                className="flex items-center gap-1 text-gray-700 hover:text-orange-600 cursor-pointer"
-                aria-label="View cart"
-              >
-                <div className="p-2 border border-gray-400 rounded-full">
-                  <ShoppingCart size={18} />
-                </div>
-              </motion.div>
+              <div className="">
+                <button
+                  onClick={() => navigate("/cartpage")}
+                  className="m-[1px]-1 p-[10px] rounded-full border b "
+                >
+                  {isLoading ? (
+                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  ) : (
+                    <CartWithBadge count={cartCount} />
+                  )}
+                </button>
+              </div>
             </div>
           </div>
         </header>
