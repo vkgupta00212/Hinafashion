@@ -107,7 +107,9 @@ const PaymentCard2 = () => {
             </div>
 
             <div className="flex flex-col items-end">
-              <div className="flex items-center border border-orange-200 bg-orange-50 rounded-full px-2 py-1 gap-2 text-xs font-medium hover:border-indigo-300 transition-all">
+              <div
+                className={`flex items-center border border-${Colors.primaryMain} bg-purple-50 rounded-full px-2 py-1 gap-2 text-xs font-medium hover:border-indigo-300 transition-all`}
+              >
                 <span className="w-5 text-center font-semibold">
                   {item.Quantity}
                 </span>
@@ -128,7 +130,8 @@ const PaymentCard2 = () => {
       {cartItems.length > 0 && (
         <div className="mt-4 text-right">
           <p className="text-lg font-semibold">
-            Total: <span className="text-orange-600">₹{totalPrice}</span>
+            Total:{" "}
+            <span className={`text-${Colors.primaryMain}`}>₹{totalPrice}</span>
           </p>
         </div>
       )}

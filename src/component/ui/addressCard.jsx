@@ -3,6 +3,7 @@ import InsertAddress from "../../backend/address/insertaddress";
 import GetAddress from "../../backend/address/getaddress";
 import GetLocation from "../../backend/location/location";
 import GetUser from "../../backend/authentication/getuser";
+import Colors from "../../core/constant";
 
 const AddressFormCard = ({ onClose, onSelectAddress }) => {
   const [formData, setFormData] = useState({
@@ -145,13 +146,15 @@ const AddressFormCard = ({ onClose, onSelectAddress }) => {
       }`}
     >
       <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent">
+        <h2
+          className={`text-2xl font-bold mb-6 bg-gradient-to-r ${Colors.gradientFrom} ${Colors.gradientTo} bg-clip-text text-transparent`}
+        >
           Add New Address
         </h2>
         {!showForm && (
           <button
             onClick={() => setShowForm(true)}
-            className="p-2 bg-orange-600 text-white rounded-full hover:bg-orange-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            className="p-2 bg-[#542374] text-white rounded-full hover:bg-purple-700 transition-all hover:cursor-pointer duration-300 focus:outline-none focus:ring-2 focus:ring-pruple-400"
             title="Add New Address"
           >
             <svg
@@ -190,7 +193,7 @@ const AddressFormCard = ({ onClose, onSelectAddress }) => {
                 <button
                   type="button"
                   onClick={handleLocationFetch}
-                  className="w-full py-2 mb-2 bg-orange-600 text-white font-medium rounded-lg hover:bg-orange-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                  className={`w-full py-2 mb-2 bg-[#b73b84] text-white font-medium rounded-lg hover:bg-${Colors.primaryMain} hover:cursor-pointer transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400`}
                 >
                   📍 Use Current Location
                 </button>
@@ -209,7 +212,7 @@ const AddressFormCard = ({ onClose, onSelectAddress }) => {
                   type="text"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full p-3 border border-gray-200 rounded-lg bg-gray-50/50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-300"
+                  className={`w-full p-3 border border-gray-200 rounded-lg bg-gray-50/50 focus:outline-none focus:ring-2 focus:ring-${Colors.primaryMain} focus:border-${Colors.primaryMain} transition-all duration-300`}
                   required
                 />
               </div>
@@ -223,7 +226,7 @@ const AddressFormCard = ({ onClose, onSelectAddress }) => {
                   rows={3}
                   value={formData.address}
                   onChange={handleChange}
-                  className="w-full p-3 border border-gray-200 rounded-lg bg-gray-50/50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-300"
+                  className={`w-full p-3 border border-gray-200 rounded-lg bg-gray-50/50 focus:outline-none focus:ring-2 focus:ring-${Colors.primaryMain} focus:border-${Colors.primaryMain} transition-all duration-300`}
                   required
                 ></textarea>
               </div>
@@ -238,7 +241,7 @@ const AddressFormCard = ({ onClose, onSelectAddress }) => {
                     type="text"
                     value={formData.state}
                     onChange={handleChange}
-                    className="w-full p-3 border border-gray-200 rounded-lg bg-gray-50/50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-300"
+                    className={`w-full p-3 border border-gray-200 rounded-lg bg-gray-50/50 focus:outline-none focus:ring-2 focus:ring-${Colors.primaryMain} focus:border-${Colors.primaryMain} transition-all duration-300`}
                     required
                   />
                 </div>
@@ -252,7 +255,7 @@ const AddressFormCard = ({ onClose, onSelectAddress }) => {
                     type="text"
                     value={formData.city}
                     onChange={handleChange}
-                    className="w-full p-3 border border-gray-200 rounded-lg bg-gray-50/50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-300"
+                    className={`w-full p-3 border border-gray-200 rounded-lg bg-gray-50/50 focus:outline-none focus:ring-2 focus:ring-${Colors.primaryMain} focus:border-${Colors.primaryMain} transition-all duration-300`}
                     required
                   />
                 </div>
@@ -267,7 +270,7 @@ const AddressFormCard = ({ onClose, onSelectAddress }) => {
                   type="text"
                   value={formData.pincode}
                   onChange={handleChange}
-                  className="w-full p-3 border border-gray-200 rounded-lg bg-gray-50/50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-300"
+                  className={`w-full p-3 border border-gray-200 rounded-lg bg-gray-50/50 focus:outline-none focus:ring-2 focus:ring-${Colors.primaryMain} focus:border-${Colors.primaryMain} transition-all duration-300`}
                   required
                 />
               </div>
@@ -276,7 +279,11 @@ const AddressFormCard = ({ onClose, onSelectAddress }) => {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className={`py-3 px-4 bg-gradient-to-r from-orange-600 to-orange-700 text-white font-semibold rounded-lg hover:from-orange-700 hover:to-orange-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400 flex items-center justify-center ${
+                  className={`py-3 px-4 bg-gradient-to-r ${
+                    Colors.gradientFrom
+                  } ${
+                    Colors.gradientTo
+                  } text-white font-semibold rounded-lg hover:cursor-pointer transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400 flex items-center justify-center ${
                     isLoading ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                 >
@@ -311,7 +318,7 @@ const AddressFormCard = ({ onClose, onSelectAddress }) => {
                 <button
                   type="button"
                   onClick={() => setShowForm(false)}
-                  className="py-3 px-4 text-sm font-medium text-orange-600 hover:text-orange-800 bg-orange-50/50 hover:bg-orange-100 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-300"
+                  className={`py-3 px-4 text-sm font-medium text-${Colors.primaryMain} hover:cursor-pointer bg-purple-50/50 hover:bg-purple-100 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-300`}
                 >
                   Cancel
                 </button>

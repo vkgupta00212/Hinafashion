@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import SpecialForYouCard from "./specialforyoucard";
-import GetSpecialforyou from "../../backend/specialforyou/getspecialforyou";
 
 const SpecialForYou = () => {
   const [services, setServices] = useState([]);

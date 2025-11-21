@@ -235,7 +235,7 @@ const OrderCards = ({ orders, filter }) => {
                       {order.Address || "N/A"}
                     </span>
                   </div>
-
+                  {/* 
                   <div className="flex justify-between">
                     <span className="text-gray-600 flex items-center gap-1">
                       <Calendar size={12} /> Slot
@@ -252,7 +252,7 @@ const OrderCards = ({ orders, filter }) => {
                         ? formatDate(order.SlotDatetime)
                         : "N/A"}
                     </span>
-                  </div>
+                  </div> */}
 
                   <div className="flex justify-between">
                     <span className="text-gray-600 flex items-center gap-1">
@@ -265,14 +265,14 @@ const OrderCards = ({ orders, filter }) => {
                     </span>
                   </div>
 
-                  <div className="flex justify-between">
+                  {/* <div className="flex justify-between">
                     <span className="text-gray-600 flex items-center gap-1">
                       <Clock size={12} /> OTP
                     </span>
                     <span className="font-medium text-xs">
                       {order.OTP ? order.OTP : "N/A"}
                     </span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </motion.div>

@@ -179,7 +179,7 @@ const Footer = () => {
 
         {/* Footer Bottom */}
         <div className="mt-12 border-t pt-8 border-gray-200 text-sm flex flex-col lg:flex-row justify-between items-center gap-4 text-gray-600">
-          <span>© 2025 Hukmee. All rights reserved.</span>
+          <span>© 2026 Hina's Fashion. All rights reserved.</span>
           <div className="flex gap-6 flex-wrap justify-center">
             <Link
               to="/privacy"

@@ -301,7 +301,7 @@ const UsedProduct = () => {
                   onClick={() => handleServiceClick(service)}
                 >
                   <CardContent className="p-0 h-full flex flex-col">
-                    <div className="h-48 overflow-hidden">
+                    <div className=" overflow-hidden">
                       <img
                         src={service.imageUrl || spaImage}
                         alt={service.ProductName}

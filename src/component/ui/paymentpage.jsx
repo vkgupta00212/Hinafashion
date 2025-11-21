@@ -278,7 +278,7 @@ const PaymentPage = () => {
               Order #{orderId} • ₹{calculateTotal()}
             </p>
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 gap-3">
               <button
                 onClick={() => {
                   onClose();
@@ -430,7 +430,7 @@ const PaymentPage = () => {
                 <div className="mt-4 flex justify-end">
                   <button
                     onClick={() => setShowAddressModal(false)}
-                    className="px-4 py-2 text-sm font-medium text-orange-600 hover:text-orange-800 bg-orange-50 hover:bg-orange-100 rounded-lg transition"
+                    className={`px-4 py-2 text-sm font-medium text-${Colors.primaryMain} hover:cursor-pointer bg-purple-50 hover:bg-purple-100 rounded-lg transition`}
                   >
                     Cancel
                   </button>

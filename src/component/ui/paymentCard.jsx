@@ -7,7 +7,6 @@ import Colors from "../../core/constant";
 
 const PaymentCard = ({
   onSelectAddress,
-
   onProceed,
   selectedAddress,
   selectedSlot,
@@ -89,7 +88,7 @@ const PaymentCard = ({
           ) : (
             <button
               onClick={onSelectAddress}
-              className={`w-full py-3 rounded-xl font-medium text-white bg-${Colors.primaryMain} shadow-md hover:shadow-lg transition`}
+              className={`w-full py-3 rounded-xl font-medium text-white bg-[#542374] shadow-md hover:shadow-lg transition`}
             >
               Select Address
             </button>
@@ -164,9 +163,9 @@ const PaymentCard = ({
           {selectedAddress && (
             <div
               onClick={onSelectAddress}
-              className="flex items-center gap-2 px-3 py-2 bg-orange-50 border border-orange-300 rounded-full whitespace-nowrap cursor-pointer hover:bg-orange-100 transition"
+              className={`flex items-center gap-2 px-3 py-2 bg-purple-100 border border-${Colors.primaryMain} rounded-full whitespace-nowrap cursor-pointer hover:bg-purple-100 transition`}
             >
-              <FaLocationDot className="w-4 h-4 text-orange-600" />
+              <FaLocationDot className={`w-4 h-4 text-${Colors.primaryMain}`} />
               <span className="text-xs font-medium text-gray-700">
                 {selectedAddress.Name.split(" ")[0]}
               </span>
@@ -191,7 +190,7 @@ const PaymentCard = ({
         {/* Pay Button */}
         <button
           onClick={handleMainClick}
-          className={`w-full py-3.5 rounded-xl font-bold text-white transition-all shadow-lg ${"bg-orange-500 hover:from-ornage-600  active:scale-95"}`}
+          className={`w-full py-3.5 rounded-xl font-bold text-white transition-all shadow-lg bg-${Colors.primaryMain} hover:from-ornage-600  active:scale-95`}
         >
           {getButtonLabel()}
         </button>

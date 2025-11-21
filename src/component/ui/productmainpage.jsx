@@ -39,8 +39,10 @@ const ProductMainPage = () => {
   const otpModalRef = useRef(null);
   const [addStatus, setAddStatus] = useState("idle");
   const [isProcessingAdd, setIsProcessingAdd] = useState(false);
+  const [showGoToCart, setShowGoToCart] = useState(false);
 
   const UserID = localStorage.getItem("userPhone");
+  console.log("fetcgeffffffffff", product);
 
   useEffect(() => {
     const checkScreen = () => setIsMobile(window.innerWidth < 768);
@@ -61,7 +63,7 @@ const ProductMainPage = () => {
         console.log("product id is like", product.ProID);
         console.log("Fetched Images", fetchedImages);
 
-        const baseUrl = "https://api.hukmee.in";
+        const baseUrl = "https://hina.anklegaming.live";
 
         if (Array.isArray(fetchedImages) && fetchedImages.length > 0) {
           const mapped = fetchedImages.map((img) =>
@@ -506,7 +508,7 @@ const ProductMainPage = () => {
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
           <div className="grid md:grid-cols-2 gap-0">
             {/* Image Slider */}
-            <div className="relative h-72 md:h-96 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
+            <div className="relative p-[1px] h-72 md:h-96 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
               {isLoading ? (
                 <div className="flex items-center justify-center h-full">
                   <div className="animate-spin rounded-full h-12 w-12 border-4 border-orange-500 border-t-transparent"></div>
@@ -515,14 +517,15 @@ const ProductMainPage = () => {
                 <>
                   <div ref={sliderRef} className="keen-slider h-full">
                     {images.map((img, index) => (
-                      <div key={index} className="keen-slider__slide">
+                      <div
+                        key={index}
+                        className="keen-slider__slide flex items-center justify-center bg-white"
+                      >
                         <img
                           src={img}
                           alt={`${product.ProductName} - Image ${index + 1}`}
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            e.currentTarget.src = spaImage;
-                          }}
+                          className="max-w-full max-h-full object-contain"
+                          onError={(e) => (e.currentTarget.src = spaImage)}
                         />
                       </div>
                     ))}
@@ -572,7 +575,7 @@ const ProductMainPage = () => {
                     </>
                   )}
 
-                  {/* Dots Indicator */}
+                  {/* Dots */}
                   {loaded && instanceRef.current && (
                     <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
                       {images.map((_, index) => (
@@ -591,14 +594,14 @@ const ProductMainPage = () => {
                   )}
                 </>
               ) : (
-                <img
-                  src={images[0] || spaImage}
-                  alt={product.ProductName}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.src = spaImage;
-                  }}
-                />
+                <div className="flex items-center justify-center h-full bg-white">
+                  <img
+                    src={images[0] || spaImage}
+                    alt={product.ProductName}
+                    className="max-w-full max-h-full object-contain"
+                    onError={(e) => (e.currentTarget.src = spaImage)}
+                  />
+                </div>
               )}
             </div>
 
@@ -617,6 +620,7 @@ const ProductMainPage = () => {
               </div>
 
               <div className="mt-8">
+                {/* Price Row */}
                 <div className="flex items-baseline gap-3 mb-6">
                   <span className="text-2xl sm:text-4xl lg:text-3xl font-bold text-gray-900">
                     ₹{Number(product.Price).toFixed(0)}
@@ -628,70 +632,31 @@ const ProductMainPage = () => {
                   )}
                 </div>
 
-                <motion.button
-                  whileHover={{ scale: addStatus === "added" ? 1 : 1.02 }}
-                  whileTap={{ scale: addStatus === "added" ? 1 : 0.98 }}
-                  onClick={() => addToCart(product)}
-                  disabled={addStatus === "adding"}
-                  className={`
-    relative w-full py-4 rounded-2xl font-bold text-white shadow-xl transition-all duration-300
-    bg-gradient-to-r ${Colors.primaryFrom} ${Colors.primaryTo}
-    hover:shadow-2xl flex items-center justify-center gap-3 text-lg
-    ${addStatus === "adding" ? "opacity-90 cursor-not-allowed" : ""}
-  `}
-                  aria-label="Add to cart"
-                >
-                  {/* Always show "Add to Cart" in background */}
-                  <span
-                    className={`flex items-center gap-3 ${
-                      addStatus !== "idle" ? "opacity-0" : ""
-                    }`}
+                {/* Buttons Row */}
+                <div className="w-full flex flex-col md:flex-row md:items-center md:gap-5">
+                  {/* ADD TO CART BUTTON */}
+                  <motion.button
+                    whileHover={{ scale: addStatus === "added" ? 1 : 1.02 }}
+                    whileTap={{ scale: addStatus === "added" ? 1 : 0.98 }}
+                    onClick={() => {
+                      addToCart(product);
+                      setTimeout(() => setShowGoToCart(true), 800);
+                    }}
+                    disabled={addStatus === "adding"}
+                    className={`
+          relative w-full py-4 rounded-2xl font-bold text-white shadow-xl transition-all hover:cursor-pointer duration-300
+          bg-gradient-to-r ${Colors.primaryFrom} ${Colors.primaryTo}
+          hover:shadow-2xl flex items-center justify-center gap-3 text-lg
+          ${addStatus === "adding" ? "opacity-90 cursor-not-allowed" : ""}
+        `}
+                    aria-label="Add to cart"
                   >
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+                    {/* Default */}
+                    <span
+                      className={`flex items-center gap-3 ${
+                        addStatus !== "idle" ? "opacity-0" : ""
+                      }`}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                      />
-                    </svg>
-                    Add to Cart
-                  </span>
-
-                  {/* Overlay: Adding… */}
-                  {addStatus === "adding" && (
-                    <span className="absolute inset-0 flex items-center justify-center gap-2">
-                      <svg
-                        className="animate-spin w-5 h-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        />
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8v8z"
-                        />
-                      </svg>
-                      Adding…
-                    </span>
-                  )}
-
-                  {/* Overlay: Added! */}
-                  {addStatus === "added" && (
-                    <span className="absolute inset-0 flex items-center justify-center gap-2">
                       <svg
                         className="w-6 h-6"
                         fill="none"
@@ -702,18 +667,94 @@ const ProductMainPage = () => {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           strokeWidth="2"
-                          d="M5 13l4 4L19 7"
+                          d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                         />
                       </svg>
-                      Added!
+                      Add to Cart
                     </span>
+
+                    {/* Adding */}
+                    {addStatus === "adding" && (
+                      <span className="absolute inset-0 flex items-center justify-center gap-2">
+                        <svg
+                          className="animate-spin w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          />
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8v8z"
+                          />
+                        </svg>
+                        Adding…
+                      </span>
+                    )}
+
+                    {/* Added */}
+                    {addStatus === "added" && (
+                      <span className="absolute inset-0 flex items-center justify-center gap-2">
+                        <svg
+                          className="w-6 h-6"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        Added!
+                      </span>
+                    )}
+                  </motion.button>
+
+                  {/* GO TO CART BUTTON */}
+                  {showGoToCart && (
+                    <button
+                      onClick={() => navigate("/cartpage")}
+                      className={`w-full mt-4 md:mt-0 py-4 item-center rounded-xl font-semibold text-white  bg-gradient-to-r ${Colors.primaryFrom} ${Colors.primaryTo} hover:bg-green-700 hover:cursor-pointer shadow-md transition`}
+                    >
+                      <span
+                        className={`ml-10 flex items-center gap-3 ${
+                          addStatus !== "idle" ? "opacity-0" : ""
+                        }`}
+                      >
+                        <svg
+                          className="w-6 h-6"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                          />
+                        </svg>
+                        Go to Cart
+                      </span>
+                    </button>
                   )}
-                </motion.button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </motion.div>
+
       <div className="p-1 mt-[7px]">
         <RatingScreen reviews={reviews} />
       </div>
