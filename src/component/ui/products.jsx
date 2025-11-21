@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Card, CardContent } from "./card";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,6 +8,7 @@ import GetProductImage from "../../backend/getproduct/getproductimage";
 import { AlertCircle, ShoppingCart } from "lucide-react";
 import { FiSearch } from "react-icons/fi";
 import Colors from "../../core/constant";
+import GetOrder from "../../backend/order/getorderid";
 
 const UsedProduct = () => {
   const [services, setServices] = useState([]);
@@ -16,12 +17,38 @@ const UsedProduct = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [isMobile, setIsMobile] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
   const { state } = useLocation();
   const service = state?.service;
-
+  const phone = localStorage.getItem("userPhone");
   const navigate = useNavigate();
 
-  console.log("service fetched in product", service);
+  // console.log("service fetched in product", service);
+
+  const fetchCartItems = useCallback(async () => {
+    if (!phone) {
+      setCartItems([]);
+      return;
+    }
+
+    try {
+      const result = await GetOrder(phone, "Pending");
+
+      console.log("RAW CART API RESULT:", result);
+
+      setCartItems(Array.isArray(result) ? result : []);
+    } catch (err) {
+      console.error("Error fetching cart:", err);
+      setCartItems([]);
+    }
+  }, [phone]);
+
+  useEffect(() => {
+    fetchCartItems();
+  }, [fetchCartItems]);
+
+  const cartCount = cartItems.length;
+  console.log("Cart Count:", cartCount);
 
   // Fetch products
   useEffect(() => {
@@ -245,7 +272,7 @@ const UsedProduct = () => {
               <FiSearch className="text-gray-500 mr-[1px] " size={20} />
               <input
                 type="text"
-                placeholder="Search brands..."
+                placeholder="Search Products..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="flex bg-transparent outline-none text-gray-700 placeholder-gray-400 font-normal ml-[10px]"
@@ -261,7 +288,7 @@ const UsedProduct = () => {
               {isLoading ? (
                 <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
               ) : (
-                <CartWithBadge count={2} />
+                <CartWithBadge count={cartCount} />
               )}
             </button>
           </div>
